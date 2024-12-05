@@ -200,7 +200,7 @@
     <div class="col-md-3" style="padding: 10px; margin-right: 15px; flex: 0 0 25%;">
         <div class="filter-options">
             <h2>Filter Options</h2>
-            <form class="wb-tables-filter" data-bind-to="#table1">
+            <form id="filter-form" class="wb-tables-filter" data-bind-to="#table1">
                 <div class="form-group">
                     <label for="dt_type">Tax year(s)</label>
                     <select class="form-control" id="dt_type" name="dt_type" data-column="2" style="width: 100%; margin-bottom: 10px;">
@@ -235,7 +235,7 @@
 
     <!-- Table Section -->
     <div class="col-md-9" style="padding: 10px; flex: 0 0 75%;">
-        <table class="table table-striped wb-tables" id="table1" data-wb-tables='{"paging": false, "ordering": true}' style="width: 100%;">
+        <table class="table table-striped wb-tables" id="table1" style="width: 100%;">
             <caption class="sr-only">Certified Tax Software</caption>
             <thead>
                 <tr>
@@ -265,6 +265,36 @@
         </table>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Check if DataTable is already initialized
+        if (!$.fn.DataTable.isDataTable('#table1')) {
+            $('#table1').DataTable({
+                paging: false,
+                ordering: true,
+                searching: false // Disable the search box if not needed
+            });
+        }
+
+        // Reset filters and redraw the table
+        $('#filter-form').on('reset', function () {
+            $('#table1').DataTable().search('').columns().search('').draw();
+        });
+
+        // Apply filters to the table
+        $('#filter-form').on('submit', function (e) {
+            e.preventDefault();
+            var table = $('#table1').DataTable();
+            table.column(2).search($('#dt_type').val()).draw();
+            table.column(3).search($('#dt_platform').val()).draw();
+            table.column(4).search($('#dt_cost').val()).draw();
+        });
+    });
+</script>
+
 
 
 
