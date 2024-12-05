@@ -170,7 +170,7 @@
       <p>Before making your selection, review the software's restrictions. These can be found in the table below, under the heading "Software information".</p>
     </dd>
   </dl>
-  <table class="table wb-tables brdr-0" id="dataset-filter" aria-live="polite" data-wb-tables="{
+<!--  <table class="table wb-tables brdr-0" id="dataset-filter" aria-live="polite" data-wb-tables="{
                   &quot;ordering&quot;:false,  &quot;paging&quot;:false, &quot;columns&quot;: [
                       { &quot;className&quot;: &quot;h3 brdr-bttm-0 brdr-lft brdr-rght mrgn-bttm-0&quot; },
                       { &quot;className&quot;: &quot;brdr-lft brdr-rght mrgn-bttm-0&quot; },
@@ -188,118 +188,24 @@
         <th scope="row">Languages</th>
         <th scope="row">Publication date</th>
       </tr>
-    </thead>
+    </thead> -->
+    <details class="mrgn-tp-md mrgn-bttm-md">
+    <summary>Tax software companies are not representatives of the CRA</summary>
+    <ul class="list-unstyled cnjnctn-type-and cnjnctn-xs mrgn-tp-lg">
+      <li class="cnjnctn-col">
+        <p>The CRA does not look at the privacy policies of software developers.</p>
+        <p>It is your responsiblity to research the policies before buying or using tax software.</p>
+      </li>
+      <li class="cnjnctn-col">
+        <p>The use of the software is the responsibility of the software developer.</p>
+        <p>The CRA cannot be held responsible if programming errors affect the calculation of amounts payable.</p>
+      </li>
+    </ul>
+  </details>
    
-  <table class="table table-striped wb-tables provisional gc-table mrgn-tp-md " data-wb-tables="{ &quot;paging&quot; : false , &quot;ordering&quot; : false }" id="table1">
-    <caption class="wb-inv">
-    [Heading]
-    </caption>  
 
-<div class="container" style="display: flex; align-items: flex-start;">
-    <!-- Filter Section -->
-    <div class="col-md-3" style="padding: 10px; margin-right: 15px; flex: 0 0 25%;">
-        <div class="filter-options">
-            <h2>Filter Options</h2>
-            <form id="filter-form" class="wb-tables-filter" data-bind-to="#table1">
-                <div class="form-group">
-                    <label for="dt_type">Tax year(s)</label>
-                    <select class="form-control" id="dt_type" name="dt_type" data-column="2" style="width: 100%; margin-bottom: 10px;">
-                        <option value="">-- Please select --</option>
-                        <option value="2017-2023">2017-2023</option>
-                        <option value="2020-2023">2020-2023</option>
-                        <option value="2023">2023</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dt_platform">Platform/Access method</label>
-                    <select class="form-control" id="dt_platform" name="dt_platform" data-column="3" style="width: 100%; margin-bottom: 10px;">
-                        <option value="">-- Please select --</option>
-                        <option value="Mobile app">Mobile app</option>
-                        <option value="Online website">Online website</option>
-                        <option value="Computer download">Computer download</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dt_cost">Cost</label>
-                    <select class="form-control" id="dt_cost" name="dt_cost" data-column="4" style="width: 100%; margin-bottom: 10px;">
-                        <option value="">-- Please select --</option>
-                        <option value="Free">Free</option>
-                        <option value="Paid">Paid</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Apply Filters</button>
-                <button type="reset" class="btn btn-secondary">Reset Filters</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Table Section -->
-    <div class="col-md-9" style="padding: 10px; flex: 0 0 75%;">
-        <table class="table table-striped wb-tables" id="table1" style="width: 100%;">
-            <caption class="sr-only">Certified Tax Software</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Tax Software</th>
-                    <th scope="col">Tax Year(s)</th>
-                    <th scope="col">Platform</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="https://www.example.com">AdvTax</a></td>
-                    <td>2017-2023</td>
-                    <td>Online website</td>
-                    <td>Free</td>
-                    <td><a href="#">More Info</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.example.com">BetterTax</a></td>
-                    <td>2020-2023</td>
-                    <td>Mobile app</td>
-                    <td>Paid</td>
-                    <td><a href="#">More Info</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // Check if DataTable is already initialized
-        if (!$.fn.DataTable.isDataTable('#table1')) {
-            $('#table1').DataTable({
-                paging: false,
-                ordering: true,
-                searching: false // Disable the search box if not needed
-            });
-        }
-
-        // Reset filters and redraw the table
-        $('#filter-form').on('reset', function () {
-            $('#table1').DataTable().search('').columns().search('').draw();
-        });
-
-        // Apply filters to the table
-        $('#filter-form').on('submit', function (e) {
-            e.preventDefault();
-            var table = $('#table1').DataTable();
-            table.column(2).search($('#dt_type').val()).draw();
-            table.column(3).search($('#dt_platform').val()).draw();
-            table.column(4).search($('#dt_cost').val()).draw();
-        });
-    });
-</script>
-
-
-
-
-<!-- <div class="row">
- filter options 
+<div class="row">
+<!-- filter options -->
 <div class="col-md-3 pull-left">
 <h4 class="wb-inv">Filtering Options</h4>
 <details open="">
@@ -382,7 +288,7 @@
 </details>
 </div>
 
-table display
+<!--table display-->
 	<div id="table1_wrapper" class="dataTables_wrapper no-footer"><div class="top"><div id="table1_filter" class="dataTables_filter"><label>Filter items<input class="" type="search" placeholder="" aria-controls="table1"></label></div><div class="dataTables_info" id="table1_info" role="status" aria-live="polite">Showing 1 to 17 of 17 entries</div></div><table class="table table-striped wb-tables provisional gc-table mrgn-tp-md  wb-init wb-tables-inited dataTable no-footer" data-wb-tables="{ &quot;paging&quot; : false , &quot;ordering&quot; : false }" id="table1" aria-describedby="table1_info">
     <caption class="wb-inv">
     [Heading]
@@ -541,24 +447,9 @@ table display
     </tbody>
   </table> 
 </div> 
-	</div>  -->
+	</div> 
 
 
-	  
-  <details class="mrgn-tp-md mrgn-bttm-md">
-    <summary>Tax software companies are not representatives of the CRA</summary>
-    <ul class="list-unstyled cnjnctn-type-and cnjnctn-xs mrgn-tp-lg">
-      <li class="cnjnctn-col">
-        <p>The CRA does not look at the privacy policies of software developers.</p>
-        <p>It is your responsiblity to research the policies before buying or using tax software.</p>
-      </li>
-      <li class="cnjnctn-col">
-        <p>The use of the software is the responsibility of the software developer.</p>
-        <p>The CRA cannot be held responsible if programming errors affect the calculation of amounts payable.</p>
-      </li>
-    </ul>
-  </details>
-  
   <!-- Pagination -->
   <nav class="gc-subway-pagination">
     <h2 class="wb-inv">Document navigation</h2>
